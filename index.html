@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You, My Love 🤍</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;
+ background:linear-gradient(145deg,#160d19,#301625,#140e1c);
+ color:#fff4f7;font-family:Georgia,serif;
+ text-align:center;overflow-x:hidden
+}
+main{max-width:520px;margin:auto;padding:28px 20px 60px}
+h1{font-size:2.1rem;color:#ffd8e5;line-height:1.3}
+h2{color:#ffc4d8}
+p{line-height:1.9;font-size:1.05rem}
+.card{
+ background:#ffffff0d;border:1px solid #ffffff20;
+ border-radius:22px;padding:24px 18px;
+ box-shadow:0 10px 35px #0003;margin:22px 0
+}
+button{
+ border:0;border-radius:30px;padding:14px 23px;
+ background:#f3b5ca;color:#381526;
+ font-size:1rem;font-weight:bold;margin:8px;
+ cursor:pointer
+}
+button:active{transform:scale(.97)}
+.hidden{display:none!important}
+.heart{position:fixed;bottom:-30px;animation:float 7s linear infinite;pointer-events:none;z-index:-1}
+@keyframes float{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+img{
+ display:block;width:100%;max-height:520px;object-fit:contain;
+ border-radius:17px;background:#120d15;margin:15px auto
+}
+.counter{color:#ffd1e0;font-size:.9rem}
+.small{font-size:.9rem;color:#e8cbd6}
+</style>
+</head>
+<body>
+<main>
+ <div style="font-size:2.5rem">🤍</div>
+ <h1>For the One Who Means Everything to Me</h1>
+ <p>A little website from my heart to yours.</p>
+
+ <section class="card" id="welcome">
+  <h2>Can you give me a little moment? 🥺</h2>
+  <p>I made something for you. Please read it with your heart.</p>
+  <button onclick="start()">Open My Heart 🤍</button>
+ </section>
+
+ <section class="card hidden" id="apology">
+  <h2>I'm Truly Sorry, Ma 🤍</h2>
+  <p>
+   I know that saying sorry cannot erase the hurt I caused you.
+   I regret my actions, and I understand that trust cannot be
+   demanded. It has to be earned through patience, honesty,
+   and consistent actions.
+  </p>
+  <p>
+   I'm not asking you to forget what happened or heal before
+   you're ready. I want to learn from my mistakes and become
+   someone who makes you feel respected, safe, and loved.
+  </p>
+  <p>I'm truly sorry for hurting you. 🤍</p>
+  <button onclick="showMemories()">Our Six Memories 📸</button>
+ </section>
+
+ <section class="card hidden" id="memories">
+  <h2>Little Pieces of Us 🤍</h2>
+  <p>Every memory holds a little piece of my heart.</p>
+  <div id="photoArea">
+   <p class="small">Our first memory is waiting for you...</p>
+  </div>
+  <p class="counter" id="counter">Memory 0 of 6</p>
+  <button id="next" onclick="nextMemory()">Reveal Our First Memory 🤍</button>
+  <p class="small">Tap the button to uncover each memory, one by one.</p>
+ </section>
+
+ <section class="card hidden" id="promises">
+  <h2>My Promises to You 🤍</h2>
+  <p>♡ I will respect your feelings and your space.</p>
+  <p>♡ I will be honest with you, even when it's difficult.</p>
+  <p>♡ I will listen instead of making assumptions.</p>
+  <p>♡ I will respect your trust and your boundaries.</p>
+  <p>♡ I will show change through my actions, not just words.</p>
+  <p>These are promises I must prove over time.</p>
+  <button onclick="finish()">One Last Message 💌</button>
+ </section>
+
+ <section class="card hidden" id="ending">
+  <div style="font-size:3rem">🤍</div>
+  <h2>You Will Always Matter to Me</h2>
+  <p>
+   I'm sorry for the pain I caused you.
+   I care about you deeply, and I will respect the time and
+   space you need. You don't owe me an immediate answer.
+  </p>
+  <p>Whatever happens, I genuinely wish to bring more kindness,
+  honesty, and peace into your life.</p>
+  <h2>With all my heart, 🤍</h2>
+  <p>From someone who is learning to love you better.</p>
+ </section>
+</main>
+
+<audio id="music" src="remo%20bgm.mp3" preload="auto" loop></audio>
+
+<script>
+let current=0;
+const photos=[
+ {src:"memory1.jpg",caption:"Memory 1 🤍"},
+ {src:"memory2.jpg",caption:"Memory 2 🤍"},
+ {src:"memory3.jpg",caption:"Memory 3 🤍"},
+ {src:"memory4.jpg",caption:"Memory 4 🤍"},
+ {src:"memory5.jpg",caption:"Memory 5 🤍"},
+ {src:"memory6.jpg",caption:"Memory 6 🤍"}
+];
+
+function start(){
+ const music=document.getElementById("music");
+ music.volume=0.65;
+ music.play().catch(()=> {
+  alert("Please tap once more to start the music. 🤍");
+ });
+ document.getElementById("welcome").classList.add("hidden");
+ document.getElementById("apology").classList.remove("hidden");
+}
+
+function showMemories(){
+ document.getElementById("apology").classList.add("hidden");
+ document.getElementById("memories").classList.remove("hidden");
+ document.getElementById("promises").classList.add("hidden");
+ document.getElementById("ending").classList.add("hidden");
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function nextMemory(){
+ if(current>=photos.length){
+  document.getElementById("memories").classList.add("hidden");
+  document.getElementById("promises").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+  return;
+ }
+ const photo=photos[current];
+ const area=document.getElementById("photoArea");
+ area.replaceChildren();
+ const img=document.createElement("img");
+ img.src=photo.src;
+ img.alt=photo.caption;
+ img.onerror=()=>{
+  img.alt="Photo not found. Please check the image filename.";
+  img.style.display="none";
+  const warning=document.createElement("p");
+  warning.textContent="This photo isn't uploaded yet. We'll add it in the next step. 🤍";
+  area.appendChild(warning);
+ };
+ area.appendChild(img);
+ const caption=document.createElement("p");
+ caption.textContent=photo.caption;
+ area.appendChild(caption);
+ current++;
+ document.getElementById("counter").textContent="Memory "+current+" of 6";
+ document.getElementById("next").textContent=
+  current===6?"Read My Promises 🤍":"Reveal Next Memory 🤍";
+}
+
+function finish(){
+ document.getElementById("promises").classList.add("hidden");
+ document.getElementById("ending").classList.remove("hidden");
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+setInterval(()=>{
+ const h=document.createElement("span");
+ h.className="heart";
+ h.textContent=["♡","🤍","♥"][Math.floor(Math.random()*3)];
+ h.style.left=Math.random()*100+"vw";
+ h.style.fontSize=(15+Math.random()*20)+"px";
+ h.style.animationDuration=(5+Math.random()*5)+"s";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),10000);
+},700);
+</script>
+</body>
+</html>
