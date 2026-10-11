@@ -5,208 +5,417 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You, My Love 🤍</title>
+
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;min-height:100vh;
- background:linear-gradient(145deg,#160d19,#301625,#140e1c);
- color:#fff4f7;font-family:Georgia,serif;
- text-align:center;overflow-x:hidden
+* {
+  box-sizing: border-box;
 }
-main{max-width:520px;margin:auto;padding:28px 20px 60px}
-h1{font-size:2.1rem;color:#ffd8e5;line-height:1.3}
-h2{color:#ffc4d8}
-p{line-height:1.9;font-size:1.05rem}
-.card{
- background:#ffffff0d;border:1px solid #ffffff20;
- border-radius:22px;padding:24px 18px;
- box-shadow:0 10px 35px #0003;margin:22px 0
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #160d19, #301625, #140e1c);
+  color: #fff4f7;
+  font-family: Georgia, serif;
+  text-align: center;
+  overflow-x: hidden;
 }
-button{
- border:0;border-radius:30px;padding:14px 23px;
- background:#f3b5ca;color:#381526;
- font-size:1rem;font-weight:bold;margin:8px;
- cursor:pointer
+
+main {
+  max-width: 520px;
+  margin: auto;
+  padding: 28px 20px 60px;
 }
-button:active{transform:scale(.97)}
-.hidden{display:none!important}
-.heart{position:fixed;bottom:-30px;animation:float 7s linear infinite;pointer-events:none;z-index:-1}
-@keyframes float{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
-img{
- display:block;width:100%;max-height:520px;object-fit:contain;
- border-radius:17px;background:#120d15;margin:15px auto
+
+h1 {
+  font-size: 2.1rem;
+  color: #ffd8e5;
+  line-height: 1.3;
 }
-.counter{color:#ffd1e0;font-size:.9rem}
-.small{font-size:.9rem;color:#e8cbd6}
+
+h2 {
+  color: #ffc4d8;
+}
+
+p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.card {
+  background: #ffffff0d;
+  border: 1px solid #ffffff20;
+  border-radius: 22px;
+  padding: 24px 18px;
+  box-shadow: 0 10px 35px #0003;
+  margin: 22px 0;
+}
+
+button {
+  border: 0;
+  border-radius: 30px;
+  padding: 14px 23px;
+  background: #f3b5ca;
+  color: #381526;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 8px;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: float 7s linear forwards;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-110vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+#photoArea img {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 17px;
+  background: #120d15;
+  margin: 15px auto;
+}
+
+.counter {
+  color: #ffd1e0;
+  font-size: .9rem;
+}
+
+.small {
+  font-size: .9rem;
+  color: #e8cbd6;
+}
+
+/* Personal letter: proper paragraphs and alignment */
+#ending {
+  text-align: left;
+  padding: 26px 22px;
+}
+
+#ending p {
+  text-align: left;
+  margin: 0 0 24px 0;
+  line-height: 1.9;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+#ending .letter-signoff {
+  margin-top: 28px;
+}
+
+#ending h2 {
+  text-align: center;
+}
+
+@media (max-width: 380px) {
+  main {
+    padding: 20px 12px 50px;
+  }
+
+  #ending {
+    padding: 22px 16px;
+  }
+}
 </style>
 </head>
+
 <body>
 <main>
- <div style="font-size:2.5rem">🤍</div>
- <h1>For the One Who Means Everything to Me</h1>
- <p>A little website from my heart to yours.</p>
 
- <section class="card" id="welcome">
+<div style="font-size:2.5rem">🤍</div>
+<h1>For the One Who Means Everything to Me</h1>
+<p>A little website from my heart to yours.</p>
+
+<section class="card" id="welcome">
+  <div style="font-size:3rem">🤍</div>
   <h2>Can you give me a little moment? 🥺</h2>
   <p>I made something for you. Please read it with your heart.</p>
   <button onclick="start()">Open My Heart 🤍</button>
- </section>
+</section>
 
- <section class="card hidden" id="apology">
+<section class="card hidden" id="apology">
   <h2>I'm Truly Sorry, Ma 🤍</h2>
-  <p>
-   I know that saying sorry cannot erase the hurt I caused you.
-   I regret my actions, and I understand that trust cannot be
-   demanded. It has to be earned through patience, honesty,
-   and consistent actions.
-  </p>
-  <p>
-   I'm not asking you to forget what happened or heal before
-   you're ready. I want to learn from my mistakes and become
-   someone who makes you feel respected, safe, and loved.
-  </p>
-  <p>I'm truly sorry for hurting you. 🤍</p>
-  <button onclick="showMemories()">Our Six Memories 📸</button>
- </section>
 
- <section class="card hidden" id="memories">
+  <p>
+    I know that saying sorry cannot erase the hurt I caused you.
+    I regret my actions, and I understand that trust cannot be
+    demanded. It has to be earned through patience, honesty,
+    and consistent actions.
+  </p>
+
+  <p>
+    I'm not asking you to forget what happened or heal before
+    you're ready. I want to learn from my mistakes and become
+    someone who makes you feel respected, safe, and loved.
+  </p>
+
+  <p>I'm truly sorry for hurting you. 🤍</p>
+
+  <button onclick="showMemories()">Our Six Memories 📸</button>
+</section>
+
+<section class="card hidden" id="memories">
   <h2>Little Pieces of Us 🤍</h2>
   <p>Every memory holds a little piece of my heart.</p>
-  <div id="photoArea">
-   <p class="small">Our first memory is waiting for you...</p>
-  </div>
-  <p class="counter" id="counter">Memory 0 of 6</p>
-  <button id="next" onclick="nextMemory()">Reveal Our First Memory 🤍</button>
-  <p class="small">Tap the button to uncover each memory, one by one.</p>
- </section>
 
- <section class="card hidden" id="promises">
+  <div id="photoArea">
+    <p class="small">Our first memory is waiting for you...</p>
+  </div>
+
+  <p class="counter" id="counter">Memory 0 of 6</p>
+
+  <button id="next" onclick="nextMemory()">
+    Reveal Our First Memory 🤍
+  </button>
+
+  <p class="small">Tap the button to uncover each memory, one by one.</p>
+</section>
+
+<section class="card hidden" id="promises">
   <h2>My Promises to You 🤍</h2>
   <p>♡ I will respect your feelings and your space.</p>
   <p>♡ I will be honest with you, even when it's difficult.</p>
   <p>♡ I will listen instead of making assumptions.</p>
   <p>♡ I will respect your trust and your boundaries.</p>
   <p>♡ I will show change through my actions, not just words.</p>
-  <p>These are promises I must prove over time.</p>
+  <p>These are promises I must prove over time. 🤍</p>
+
   <button onclick="finish()">One Last Message 💌</button>
- </section>
-
- 
-<section class="card hidden" id="ending">
-  <div style="text-align:left; line-height:1.8;">
-
-    <p>My dearest Ma,</p>
-
-    <p>I don’t even know how to start this letter because my heart is full of regret for what I did to you. 😭🙏🏻</p>
-
-    <p>Ma, I’m truly sorry. I never wanted to hurt you or make you feel like I don’t trust you. The pain from our past fight suddenly came back into my mind, and I let my fear and overthinking control me. Instead of calming myself down and talking to you, I made the wrong decision. I know my feelings don’t justify what I did, and I’m not writing this to prove myself right.</p>
-
-    <p>Ma, you always tell me to trust you first, and now I understand why those words are so important. You deserve to feel loved, respected and trusted by the person who wants to spend his whole life with you. I don’t want to become someone who makes you feel like you always have to prove yourself to me.</p>
-
-    <p>I know your past doesn’t define the person you are today. I know you have your own dreams, your own life and your own future. I should respect you as the person you are now, instead of allowing my fears to make decisions for me.</p>
-
-    <p>Ma, I want to build our future together. I’m working hard because I want us to have a better life, and I want to see you happy beside me. But what is the point of building a beautiful future if I don’t learn how to protect the peace and trust between us? I need to work on my heart and mind too, not just our future.</p>
-
-    <p>I promise I’ll learn to trust you, Ma. When my overthinking comes back, I’ll learn to calm myself down and communicate with you instead of acting on my fears. I’ll respect your privacy, your feelings and your space. I want my actions to show you that I’m learning from this mistake.</p>
-
-    <p>I also know that you don’t have to forgive me immediately. I won’t force you to trust me just because I’m apologising. I understand that trust is something I have to respect and earn through my actions.</p>
-
-    <p>Sometimes I hate how my own mind can turn my fears into something that hurts the person I love the most. But I don’t want to keep repeating the same mistake. I want to become a better man, a better partner and one day, a better husband to you.</p>
-
-    <p>I pray to Bhagavan Krishna to help me control my fears, give me a peaceful mind and teach me how to love you in the right way. 🙏🏻🤍</p>
-
-    <p>Ma, I’m sorry for the pain I caused you. I’m sorry for making you question whether I truly trust you. You mean so much more to me than my fears, and I don’t want my overthinking to keep hurting our relationship.</p>
-
-    <p>You don’t have to reply to this letter right away. Take your time and have the space you need. I just wanted you to know what’s in my heart.</p>
-
-    <p>I’m sorry, Ma. From the bottom of my heart. 😭🙏🏻🤍</p>
-
-    <p style="margin-top:24px;">
-      With all my love,<br>
-      Your Indran 🤍
-    </p>
-
-  </div>
 </section>
 
-</main>
+<!-- This entire letter stays hidden until the final button is pressed. -->
+<section class="card hidden" id="ending">
+
+  <p>My dearest Ma,</p>
+
+  <p>
+    I don’t even know how to start this letter because my heart
+    is full of regret for what I did to you. 😭🙏🏻
+  </p>
+
+  <p>
+    Ma, I’m truly sorry. I never wanted to hurt you or make you
+    feel like I don’t trust you. The pain from our past fight
+    suddenly came back into my mind, and I let my fear and
+    overthinking control me. Instead of calming myself down
+    and talking to you, I made the wrong decision. I know my
+    feelings don’t justify what I did, and I’m not writing this
+    to prove myself right.
+  </p>
+
+  <p>
+    Ma, you always tell me to trust you first, and now I
+    understand why those words are so important. You deserve
+    to feel loved, respected and trusted by the person who
+    wants to spend his whole life with you. I don’t want to
+    become someone who makes you feel like you always have
+    to prove yourself to me.
+  </p>
+
+  <p>
+    I know your past doesn’t define the person you are today.
+    I know you have your own dreams, your own life and your
+    own future. I should respect you as the person you are
+    now, instead of allowing my fears to make decisions for me.
+  </p>
+
+  <p>
+    Ma, I want to build our future together. I’m working hard
+    because I want us to have a better life, and I want to see
+    you happy beside me. But what is the point of building a
+    beautiful future if I don’t learn how to protect the peace
+    and trust between us? I need to work on my heart and mind
+    too, not just our future.
+  </p>
+
+  <p>
+    I promise I’ll learn to trust you, Ma. When my overthinking
+    comes back, I’ll learn to calm myself down and communicate
+    with you instead of acting on my fears. I’ll respect your
+    privacy, your feelings and your space. I want my actions
+    to show you that I’m learning from this mistake.
+  </p>
+
+  <p>
+    I also know that you don’t have to forgive me immediately.
+    I won’t force you to trust me just because I’m apologising.
+    I understand that trust is something I have to respect and
+    earn through my actions.
+  </p>
+
+  <p>
+    Sometimes I hate how my own mind can turn my fears into
+    something that hurts the person I love the most. But I
+    don’t want to keep repeating the same mistake. I want to
+    become a better man, a better partner and one day, a
+    better husband to you.
+  </p>
+
+  <p>
+    I pray to Bhagavan Krishna to help me control my fears,
+    give me a peaceful mind and teach me how to love you in
+    the right way. 🙏🏻🤍
+  </p>
+
+  <p>
+    Ma, I’m sorry for the pain I caused you. I’m sorry for
+    making you question whether I truly trust you. You mean
+    so much more to me than my fears, and I don’t want my
+    overthinking to keep hurting our relationship.
+  </p>
+
+  <p>
+    You don’t have to reply to this letter right away. Take
+    your time and have the space you need. I just wanted
+    you to know what’s in my heart.
+  </p>
+
+  <p>
+    I’m sorry, Ma. From the bottom of my heart. 😭🙏🏻🤍
+  </p>
+
+  <p class="letter-signoff">
+    With all my love,<br>
+    Your Indran 🤍
+  </p>
+
+</section>
 
 <audio id="music" src="remo%20bgm.mp3" preload="auto" loop></audio>
 
+</main>
+
 <script>
-let current=0;
-const photos=[
-{src:"file_00000000170c8207bbfb465b93469c8f.jpg",caption:"Our little fingers, our little world. 🥹🤍 Even the smallest moments with you become the sweetest memories in my heart. 🫶🏻🤍"},
-{src:"file_0000000047888211a61994832b5fa562.jpg",caption:"Having you by my side makes every moment more special. 🥹🤍 No matter how beautiful this picture is, my favourite part will always be standing next to you. 🫶🏻🤍"},
-{src:"file_0000000069908211be6898128507db22.jpg",caption:"This was the day my heart started falling for you. 🥹🤍 I never knew one little moment would become such a beautiful part of my life. ❤️‍🩹🤍"},
-{src:"file_0000000091e08207b361800d0b7143bb.jpg",caption:"Every time I look at this picture, I remember how beautiful it feels to have you close to me. 🥹🤍 You and me, in our own little world. 🫶🏻🤍"},
-{src:"file_00000000adb48211a13cc64bde6679f2.jpg",caption:"Ma, even an ordinary day becomes special when I'm with you. 🥹🤍 Your smile, our little moments, and the happiness we shared are memories I'll always keep close to my heart. 🫶🏻🤍"},
-{src:"file_00000000b9ec8207a0f492f88d117807.jpg",caption:"These silly little moments with you are some of my happiest memories. 🥹🤍 No matter what life brings, I'll always be grateful for every laugh, every smile, and every moment we shared. 🫶🏻🤍"}
+let current = 0;
+
+const photos = [
+  {
+    src: "file_00000000170c8207bbfb465b93469c8f.jpg",
+    caption: "Our little fingers, our little world. 🤍🥹"
+  },
+  {
+    src: "file_0000000047888211a61994832b5fa562.jpg",
+    caption: "Having you by my side makes every moment more special. 🤍"
+  },
+  {
+    src: "file_0000000069908211be6898128507db22.jpg",
+    caption: "This was the day my heart started falling for you. 🤍"
+  },
+  {
+    src: "file_0000000091e08207b361800d0b7143bb.jpg",
+    caption: "Every time I look at this picture, I remember how beautiful it feels to have you. 🤍"
+  },
+  {
+    src: "file_00000000adb48211a13cc64bde6679f2.jpg",
+    caption: "Ma, even an ordinary day becomes special when I'm with you. 🤍"
+  },
+  {
+    src: "file_00000000b9ec8207a0f492f88d117807.jpg",
+    caption: "These silly little moments with you are some of my happiest memories. 🤍"
+  }
 ];
-function start(){
- const music=document.getElementById("music");
- music.volume=0.65;
- music.play().catch(()=> {
-  alert("Please tap once more to start the music. 🤍");
- });
- document.getElementById("welcome").classList.add("hidden");
- document.getElementById("apology").classList.remove("hidden");
+
+function start() {
+  const music = document.getElementById("music");
+  music.volume = 0.65;
+
+  music.play().catch(() => {
+    // The browser may require another tap before music can play.
+  });
+
+  document.getElementById("welcome").classList.add("hidden");
+  document.getElementById("apology").classList.remove("hidden");
 }
 
-function showMemories(){
- document.getElementById("apology").classList.add("hidden");
- document.getElementById("memories").classList.remove("hidden");
- document.getElementById("promises").classList.add("hidden");
- document.getElementById("ending").classList.add("hidden");
- window.scrollTo({top:0,behavior:"smooth"});
+function showMemories() {
+  document.getElementById("apology").classList.add("hidden");
+  document.getElementById("memories").classList.remove("hidden");
+  document.getElementById("promises").classList.add("hidden");
+  document.getElementById("ending").classList.add("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function nextMemory(){
- if(current>=photos.length){
-  document.getElementById("memories").classList.add("hidden");
-  document.getElementById("promises").classList.remove("hidden");
-  window.scrollTo({top:0,behavior:"smooth"});
-  return;
- }
- const photo=photos[current];
- const area=document.getElementById("photoArea");
- area.replaceChildren();
- const img=document.createElement("img");
- img.src=photo.src;
- img.alt=photo.caption;
- img.onerror=()=>{
-  img.alt="Photo not found. Please check the image filename.";
-  img.style.display="none";
-  const warning=document.createElement("p");
-  warning.textContent="This photo isn't uploaded yet. We'll add it in the next step. 🤍";
-  area.appendChild(warning);
- };
- area.appendChild(img);
- const caption=document.createElement("p");
- caption.textContent=photo.caption;
- area.appendChild(caption);
- current++;
- document.getElementById("counter").textContent="Memory "+current+" of 6";
- document.getElementById("next").textContent=
-  current===6?"Read My Promises 🤍":"Reveal Next Memory 🤍";
+function nextMemory() {
+  if (current >= photos.length) {
+    document.getElementById("memories").classList.add("hidden");
+    document.getElementById("promises").classList.remove("hidden");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  const photo = photos[current];
+  const area = document.getElementById("photoArea");
+  area.replaceChildren();
+
+  const img = document.createElement("img");
+  img.src = photo.src;
+  img.alt = photo.caption;
+
+  img.onerror = () => {
+    img.style.display = "none";
+    const warning = document.createElement("p");
+    warning.textContent =
+      "This photo could not be loaded. Please check its filename in GitHub.";
+    area.appendChild(warning);
+  };
+
+  area.appendChild(img);
+
+  const caption = document.createElement("p");
+  caption.textContent = photo.caption;
+  area.appendChild(caption);
+
+  current++;
+
+  document.getElementById("counter").textContent =
+    "Memory " + current + " of 6";
+
+  document.getElementById("next").textContent =
+    current === 6
+      ? "Read My Promises 🤍"
+      : "Reveal Next Memory 🤍";
 }
 
-function finish(){
- document.getElementById("promises").classList.add("hidden");
- document.getElementById("ending").classList.remove("hidden");
- window.scrollTo({top:0,behavior:"smooth"});
+function finish() {
+  document.getElementById("promises").classList.add("hidden");
+  document.getElementById("ending").classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-setInterval(()=>{
- const h=document.createElement("span");
- h.className="heart";
- h.textContent=["♡","🤍","♥"][Math.floor(Math.random()*3)];
- h.style.left=Math.random()*100+"vw";
- h.style.fontSize=(15+Math.random()*20)+"px";
- h.style.animationDuration=(5+Math.random()*5)+"s";
- document.body.appendChild(h);
- setTimeout(()=>h.remove(),10000);
-},700);
+// Floating hearts
+setInterval(() => {
+  const heart = document.createElement("span");
+  heart.className = "heart";
+  heart.textContent = ["♡", "🤍", "♥"][Math.floor(Math.random() * 3)];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+  heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 10000);
+}, 700);
 </script>
+
 </body>
 </html>
