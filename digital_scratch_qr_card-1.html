@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#080609">
+<title>For You, My Love ♡</title>
+<style>
+:root{--red:#ff263f;--pink:#ff6b91;--bg:#080609}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,#210b12 0%,#080609 58%);color:#fff;font-family:Arial,Helvetica,sans-serif;display:flex;justify-content:center;align-items:center;padding:22px}
+.card{width:min(100%,480px);text-align:center;border:1px solid #5d1a28;border-radius:28px;padding:26px 18px 24px;box-shadow:0 0 35px #ff263f18;background:linear-gradient(160deg,#100a0e,#080609 70%)}
+.heart{font-size:34px;color:var(--red);margin-bottom:8px;text-shadow:0 0 20px #ff263f80}
+h1{font-size:clamp(26px,7vw,36px);letter-spacing:1.5px;margin:0 0 12px;font-weight:800}
+.subtitle{color:#f0cbd3;font-size:15px;line-height:1.6;margin:0 auto 22px;max-width:330px}
+.scratch-wrap{position:relative;width:min(100%,360px);aspect-ratio:1;margin:0 auto;border-radius:18px;overflow:hidden;background:#fff;border:3px solid var(--red);box-shadow:0 0 24px #ff263f30;touch-action:none}
+.qr{width:100%;height:100%;display:block;object-fit:contain;background:#fff}
+#foil{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.instructions{margin:18px 0 6px;color:#ff9caf;font-weight:700;font-size:15px}
+.small{color:#b9a9ae;font-size:12px;line-height:1.5;margin:8px auto 0;max-width:320px}
+.status{min-height:22px;margin-top:12px;color:#fff;font-size:13px}
+.link{display:none;margin:14px auto 0;padding:13px 18px;border-radius:999px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 0 20px #ff263f50}
+.link.show{display:inline-block}
+.footer{margin-top:22px;color:#6e5b61;font-size:11px;letter-spacing:1px}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="heart">♡</div>
+  <h1>FOR YOU, MY LOVE</h1>
+  <p class="subtitle">A little surprise from my heart to yours.<br>Scratch gently to reveal your secret QR code 🤍</p>
+  <div class="scratch-wrap" id="scratchWrap" aria-label="Scratch to reveal the QR code">
+    <img class="qr" id="qr" alt="QR code linking to the apology website" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkwAAAJMCAIAAACHBm6UAAANv0lEQVR4nO3cMZIjSxlGUUS0gYXP/heHj4VXODjTEW9I3uSk/rw6ZwGtUlWpb6TzvZ7n+QsAFP313RcAAL+LyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZH29+wK++8ff/v7uS3ibf/77X1v+zso9XPmsac9i1/1Zseu7T7vP096xXZ+14sb350Yn7/MKJzkAskQOgCyRAyBL5ADIEjkAskQOgCyRAyBL5ADIEjkAskQOgCyRAyBr3HblimnbaCumbdmd3Le8cS9xxa7PuvF9nnafV96NaRuYNz73af/HVjjJAZAlcgBkiRwAWSIHQJbIAZAlcgBkiRwAWSIHQJbIAZAlcgBkiRwAWVduV644ubF2coPu5Obkimn7lis+eW9z2ndfsXI9J9/5k6r/x05ykgMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALKy25WccXJLc9rfWTFt2/PkPuHJ+zztuTOHkxwAWSIHQJbIAZAlcgBkiRwAWSIHQJbIAZAlcgBkiRwAWSIHQJbIAZBlu/IyJ7cHdzm5zbjLjRuPN/6dk5ucN76H/DonOQCyRA6ALJEDIEvkAMgSOQCyRA6ALJEDIEvkAMgSOQCyRA6ALJEDICu7XWmD7ud2bf1N+6wV0zYMT373ab+Lad992rsx7XndyEkOgCyRAyBL5ADIEjkAskQOgCyRAyBL5ADIEjkAskQOgCyRAyBL5ADIunK78uTe3TS7tvVO/p1dpn2vaX9nxbRtxhXT3sNdbrzmGznJAZAlcgBkiRwAWSIHQJbIAZAlcgBkiRwAWSIHQJbIAZAlcgBkiRwAWa/ned59DWx2cp9w1/7etH3Ck/dn2lbkLp/83ZnDSQ6ALJEDIEvkAMgSOQCyRA6ALJEDIEvkAMgSOQCyRA6ALJEDIEvkAMj6evcFvNONu4s3bv3tuj8n9yR3Xc+0jdBppv0Gb/x9ffL/lhVOcgBkiRwAWSIHQJbIAZAlcgBkiRwAWSIHQJbIAZAlcgBkiRwAWSIHQNaV25XTdvxu3MSbts24YtrO4YqT78bJncyTW5G7tkansTl5hpMcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQdeV25Yobd/xW7NqTrG4zTtswnLYrOO19Pvm8pu2sfvL1nOQkB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZL2e53n3Nfzgxi27abtwJ/cJp+3dVa95l2nv/MlN1xvv84qT7/yNvy8nOQCyRA6ALJEDIEvkAMgSOQCyRA6ALJEDIEvkAMgSOQCyRA6ALJEDIMt25f9w8nqmmbZBN203r7oZOO03eNInf/cqJzkAskQOgCyRAyBL5ADIEjkAskQOgCyRAyBL5ADIEjkAskQOgCyRAyDr690X8N3JPcldf2faZuCN93DFtB3Iac/9pBs3Qqdtn66Y9vu68R46yQGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFmv53nefQ2/xcm9u12mbb7duKV50id/rxUndw6nfdaKG7cip13PCic5ALJEDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoAskQMgK7tdueLGXcpp23End/xW3LgVuaL6TKdtTp685hv3dVfYrgSAQ0QOgCyRAyBL5ADIEjkAskQOgCyRAyBL5ADIEjkAskQOgCyRAyDr690X8F11z23aRt9J07YHdzn5rk7bCL3xNzjNyWexovq8nOQAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoCs1/M8774G/uvkPuHJ3cVpO4cn9y1XTNs1Pfm8qruLN36vab+LXZzkAMgSOQCyRA6ALJEDIEvkAMgSOQCyRA6ALJEDIEvkAMgSOQCyRA6ArK93X8B307b1Vty49XfStF3BFdOu+eS+5YpP/g2umPbdd5n2Hq5wkgMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALLGbVfu2qDbtZ+28lnT9tym7eZN24E86eT9mbbNePI3uOLk9Uz7//PJnOQAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoCscduVJ03boFuxcj3T9hJPXs/J7dMbN0Kn/Z0VJ3dfd9l1D298D6dxkgMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALJez/O8+xp+MG1/j587uZu3y8nnfuM+6kk3bjPe+Ew/+X+dkxwAWSIHQJbIAZAlcgBkiRwAWSIHQJbIAZAlcgBkiRwAWSIHQJbIAZA1brtyl0/eu1sx7XpW2Ay8y433cNp27o33cBonOQCyRA6ALJEDIEvkAMgSOQCyRA6ALJEDIEvkAMgSOQCyRA6ALJEDICu7Xbmiugs3bZfyxh3Rk5/l/fm5k+/PNHYyf52THABZIgdAlsgBkCVyAGSJHABZIgdAlsgBkCVyAGSJHABZIgdAlsgBkPX17gv4M3ZttU3b35t2PbtUv9e0z5q2pXnjFuK0HUh+nZMcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQNW67srqtd3J/r7qtd+M173ruJ5/pjfd52jbsLtM2S298N5zkAMgSOQCyRA6ALJEDIEvkAMgSOQCyRA6ALJEDIEvkAMgSOQCyRA6ArHHbldNM28nc5eSO38ldwRt3/E5uqJ508p2ftrtY/X3dyEkOgCyRAyBL5ADIEjkAskQOgCyRAyBL5ADIEjkAskQOgCyRAyBL5ADIsl15yMlNxapP3ic8adrO6gr7n2f+zrT7s8JJDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyLpyu/LGjcdpG3Qrpt3DqmmbnCumbbFOu4cntyJP3ucb//c6yQGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFmv53nefQ0/2LWNVt362/VZK27cqZv23FdMe5+rz/Tk97rx/9i0576LkxwAWSIHQJbIAZAlcgBkiRwAWSIHQJbIAZAlcgBkiRwAWSIHQJbIAZD19e4L+DNO7sLt+jsn9/d2fa+TG5i73HjNJ03bUJ32Gzx5zbucfKbTvvsKJzkAskQOgCyRAyBL5ADIEjkAskQOgCyRAyBL5ADIEjkAskQOgCyRAyDryu3KFSe32lZ88mbgtD3Aafd52k7mjd/LviV/xEkOgCyRAyBL5ADIEjkAskQOgCyRAyBL5ADIEjkAskQOgCyRAyBL5ADIym5XntyFs4k3x8n7vMu067Ht+XPTdnGnvavTOMkBkCVyAGSJHABZIgdAlsgBkCVyAGSJHABZIgdAlsgBkCVyAGSJHABZr+d53n0N/B+m7QrucuNu58nrmbbfuMvJ+1N9x1bcuDm5i5McAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQ9fXuC/iuutG3Yte+3Mm/88lbfzfuAU7b0jz5e5/2WTe+PzdykgMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALLGbVeuuHHz7eSm4opd23rTthBP2nUPb/zuK6a9qyfv843/o6qc5ADIEjkAskQOgCyRAyBL5ADIEjkAskQOgCyRAyBL5ADIEjkAskQOgKwrtytXVHfqpm1Orji527nr/qyYdj27VK/5xs9aMe1ZTOMkB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZGW3Kz/ZtG29FSf3JHfZdZ93bUVO2zU9uVm6y8ndzmmftcu0LU0nOQCyRA6ALJEDIEvkAMgSOQCyRA6ALJEDIEvkAMgSOQCyRA6ALJEDIMt25WVObhiuOLnfeKNdz2uXkzuZ00zbCF1x8rOqnOQAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoCs7HalPbdfd+Nu3rR9wpPbntP2SKv3Z9r7c+PzOslJDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyBI5ALJEDoAskQMgS+QAyLpyu/LG/bQbTdvo2+XGvcRdqr+dk7ud057pipO7ndM4yQGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFmv53nefQ0A8Fs4yQGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFkiB0CWyAGQJXIAZIkcAFn/ASTFchF2k83MAAAAAElFTkSuQmCC">
+    <canvas id="foil"></canvas>
+  </div>
+  <div class="instructions">✦ SCRATCH HERE ✦</div>
+  <p class="small">Use your finger to rub away the silver layer. When the code is revealed, scan it with another phone to open your message.</p>
+  <div class="status" id="status">Your surprise is waiting… ♡</div>
+  <a class="link" id="openLink" href="https://indrankamal13.github.io/romantic-apology/" target="_blank" rel="noopener">Open My Heart 🤍</a>
+  <div class="footer">MADE WITH LOVE • JUST FOR YOU</div>
+</main>
+<script>
+const canvas = document.getElementById('foil');
+const ctx = canvas.getContext('2d', { willReadFrequently: true });
+const wrap = document.getElementById('scratchWrap');
+const statusEl = document.getElementById('status');
+const openLink = document.getElementById('openLink');
+let isDrawing = false, last = null, revealed = false;
+
+function drawFoil(){
+  const rect = wrap.getBoundingClientRect();
+  const dpr = Math.max(1, window.devicePixelRatio || 1);
+  canvas.width = Math.round(rect.width*dpr);
+  canvas.height = Math.round(rect.height*dpr);
+  canvas.style.width = rect.width+'px';
+  canvas.style.height = rect.height+'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const w=rect.width,h=rect.height;
+  const grad=ctx.createLinearGradient(0,0,w,h);
+  grad.addColorStop(0,'#d6d6db'); grad.addColorStop(.22,'#777982');
+  grad.addColorStop(.45,'#e9e9ed'); grad.addColorStop(.67,'#858791');
+  grad.addColorStop(1,'#c5c5cb');
+  ctx.globalCompositeOperation='source-over';
+  ctx.fillStyle=grad; ctx.fillRect(0,0,w,h);
+  // Brushed-metal texture and subtle shine
+  for(let y=0;y<h;y+=5){
+    ctx.strokeStyle = y%10===0 ? 'rgba(255,255,255,.16)' : 'rgba(30,30,35,.08)';
+    ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y+((y%3)-1)); ctx.stroke();
+  }
+  ctx.fillStyle='rgba(25,20,25,.78)';
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.font='bold '+Math.max(19,w*.065)+'px Arial';
+  ctx.fillText('SCRATCH TO REVEAL',w/2,h*.43);
+  ctx.font=Math.max(16,w*.045)+'px Arial';
+  ctx.fillText('♡  YOUR SURPRISE  ♡',w/2,h*.53);
+  ctx.font=Math.max(12,w*.033)+'px Arial';
+  ctx.fillText('rub here with your finger',w/2,h*.62);
+  // Pink frame
+  ctx.strokeStyle='rgba(255,38,63,.75)'; ctx.lineWidth=3;
+  ctx.strokeRect(12,12,w-24,h-24);
+}
+function point(e){
+  const r=canvas.getBoundingClientRect();
+  return {x:e.clientX-r.left,y:e.clientY-r.top};
+}
+function scratch(e){
+  if(!isDrawing || revealed) return;
+  const p=point(e);
+  ctx.globalCompositeOperation='destination-out';
+  ctx.lineCap='round';ctx.lineJoin='round';ctx.lineWidth=Math.max(34,canvas.clientWidth*.115);
+  ctx.beginPath();
+  if(last){ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y)}else{ctx.arc(p.x,p.y,ctx.lineWidth/2,0,Math.PI*2)}
+  ctx.stroke();ctx.globalCompositeOperation='source-over';
+  last=p;
+}
+function begin(e){
+  if(revealed)return;
+  isDrawing=true;last=null;
+  try{canvas.setPointerCapture(e.pointerId)}catch(_){}
+  scratch(e);e.preventDefault();
+}
+function end(){isDrawing=false;last=null;checkProgress()}
+function checkProgress(){
+  if(revealed)return;
+  const w=canvas.width,h=canvas.height;
+  const data=ctx.getImageData(0,0,w,h).data;
+  let clear=0, total=0;
+  // Sample every 20 pixels for quick mobile performance.
+  for(let i=3;i<data.length;i+=80){total++;if(data[i]<30)clear++}
+  const pct=clear/Math.max(1,total);
+  if(pct>.42){
+    revealed=true;
+    canvas.style.transition='opacity .7s ease';
+    canvas.style.opacity='0';
+    setTimeout(()=>{canvas.style.display='none'},750);
+    statusEl.textContent='You revealed it! Scan the QR with another phone 🤍';
+    openLink.classList.add('show');
+  }else{
+    statusEl.textContent='Keep scratching… '+Math.min(99,Math.round(pct*100))+'% revealed ♡';
+  }
+}
+canvas.addEventListener('pointerdown',begin);
+canvas.addEventListener('pointermove',scratch);
+canvas.addEventListener('pointerup',end);
+canvas.addEventListener('pointercancel',end);
+canvas.addEventListener('pointerleave',end);
+window.addEventListener('resize',()=>{if(!revealed)drawFoil()});
+drawFoil();
+</script>
+</body>
+</html>
